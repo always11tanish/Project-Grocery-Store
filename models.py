@@ -1,10 +1,10 @@
 from flask_sqlalchemy import SQLAlchemy
-from app import app
+
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
-db = SQLAlchemy(app)
+db = SQLAlchemy()
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -52,6 +52,3 @@ class Order(db.Model):
     quantity = db.Column(db.Integer, nullable=False)
     price = db.Column(db.Float, nullable=False)
 
-
-with app.app_context():
-    db.create_all()

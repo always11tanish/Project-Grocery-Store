@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block content %}
+    <h1>Hello {{user.username}}.</h1>
+    <br>  Welcome to your profile page.
+    <br> <br>
+    <div class="profile-pic" >
+        <img src="https://api.dicebear.com/6.x/lorelei/svg?seed={{user.username}}"   width="100" height="100">
+    
+    </div>
+
+<a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+
+{# form change password and username #}
+
+<form action="" method="post" class="form">
+    <div class="form-group">
+        <label for="username" class="form-label">Username:</label>
+        <input type="text" id="username" name="username" class="form-control" required>
+    </div>
+    <div>
+    <label for="cpassword" class="form-label">Current Password:</label>
+    <input type="password" id="cpassword" name="cpassword" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="password" class="form-label">New Password:</label>
+        <input type="password" id="password" name="password" class="form-control" required>
+    </div> <br>
+    <input type="submit" value="Update Profile" class="btn btn-primary">
+
+{% endblock %}
+
